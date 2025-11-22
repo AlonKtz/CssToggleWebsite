@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Front End Development Demo - Understanding HTML, CSS, and JavaScript">
+    <title>Front End Development Demo</title>
+    <link rel="stylesheet" href="style.css" id="main-stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>💻 Front End Dev Demo</h1>
+            </div>
+            <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" class="donate-btn">
+                ☕ Buy Me a Coffee
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Understanding Front End Development</h1>
+                <p>Learn how HTML, CSS, and JavaScript work together to create beautiful, interactive websites.</p>
+            </section>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-icon">📄</div>
+                    <h3>HTML</h3>
+                    <p>HTML (HyperText Markup Language) provides the structure and content of web pages. It defines elements like headings, paragraphs, links, and images.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>CSS (Cascading Style Sheets) controls the visual presentation. It adds colors, layouts, fonts, animations, and makes websites beautiful.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>JavaScript adds interactivity and dynamic behavior. It enables features like form validation, animations, and real-time updates.</p>
+                </div>
+            </div>
+
+            <!-- Code Example Section -->
+            <section class="code-section">
+                <h2>How They Work Together</h2>
+                <p>Here's a simple example showing how HTML, CSS, and JavaScript collaborate:</p>
+                
+                <div class="code-example">
+                    <strong>HTML:</strong> Defines the structure<br>
+                    &lt;button id="myButton"&gt;Click Me&lt;/button&gt;<br><br>
+                    
+                    <strong>CSS:</strong> Styles the appearance<br>
+                    button { background: blue; color: white; }<br><br>
+                    
+                    <strong>JavaScript:</strong> Adds interactivity<br>
+                    button.addEventListener('click', () => alert('Hello!'));
+                </div>
+            </section>
+
+            <!-- Why CSS Matters Section -->
+            <section class="code-section">
+                <h2>Why CSS Matters</h2>
+                <p>Without CSS, websites would look plain and unstyled. Try toggling the CSS using the button in the bottom-right corner to see the difference!</p>
+                
+                <div class="content-grid" style="margin-top: var(--spacing-md);">
+                    <div class="card">
+                        <h3>Visual Design</h3>
+                        <p>Colors, fonts, spacing, and layout all come from CSS. It transforms raw HTML into beautiful interfaces.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>User Experience</h3>
+                        <p>CSS creates smooth transitions, hover effects, and responsive designs that adapt to different screen sizes.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Brand Identity</h3>
+                        <p>Consistent styling across your site builds brand recognition and professional appearance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Resources -->
+            <section class="code-section">
+                <h2>Keep Learning</h2>
+                <p>Front-end development is an exciting journey! Here are some key concepts to explore:</p>
+                <ul style="color: var(--color-text-muted); margin-top: var(--spacing-md); line-height: 2;">
+                    <li>Responsive Design - Making sites work on all devices</li>
+                    <li>Flexbox & Grid - Modern CSS layout systems</li>
+                    <li>CSS Animations - Creating smooth, engaging transitions</li>
+                    <li>DOM Manipulation - Using JavaScript to update the page</li>
+                    <li>Web Accessibility - Building inclusive experiences</li>
+                </ul>
+            </section>
+
+            <!-- Support Section -->
+            <section class="code-section" style="background: var(--gradient-primary); border: none;">
+                <h2 style="color: white;">☕ Support This Project</h2>
+                <p style="color: white; font-size: 1.1rem; line-height: 1.8;">
+                    Your donations help me develop more educational tools like this one! I'm passionate about creating free, accessible learning resources for developers at all levels. With your support, I can dedicate more time to building interactive demos, tutorials, and tools that make learning web development easier and more enjoyable. Every contribution, no matter how small, makes a real difference and motivates me to keep creating. Thank you for considering supporting this work! 🙏
+                </p>
+                <div style="text-align: center; margin-top: var(--spacing-md);">
+                    <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" class="donate-btn" style="font-size: 1.1rem; padding: var(--spacing-sm) var(--spacing-lg);">
+                        ☕ Buy Me a Coffee
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Front End Development Demo. Built with HTML, CSS, and JavaScript.</p>
+            <p style="margin-top: var(--spacing-xs);">Toggle CSS to see how styling transforms this page!</p>
+        </div>
+    </footer>
+
+    <!-- Toggle Control Panel -->
+    <div class="toggle-panel">
+        <h3>🎛️ Demo Control</h3>
+        <button class="toggle-btn" id="toggle-css-btn">Toggle CSS</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
