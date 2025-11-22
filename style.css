@@ -267,6 +267,12 @@ main {
   box-shadow: var(--shadow-sm);
 }
 
+.toggle-btn-large {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
 .toggle-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
