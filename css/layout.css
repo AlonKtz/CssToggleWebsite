@@ -1,0 +1,87 @@
+/* ===================================
+   LAYER 3: LAYOUT
+   Where things sit: Flexbox, Grid, positioning, widths,
+   and media queries that rearrange the page on small screens.
+   =================================== */
+
+body { min-height: 100vh; }
+
+/* Sticky header: stays at the top while you scroll */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Flexbox: logo on the left, button on the right */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Centered column with a maximum width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero { text-align: center; }
+
+.hero p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid: as many 280px+ columns as fit */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.section .content-grid { margin-bottom: 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* Grid again: three code panels side by side */
+.code-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.demo-stage { text-align: center; }
+
+.support-actions,
+footer { text-align: center; }
+
+/* Responsive: stack things on narrow screens */
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; }
+
+  .hero h1 { font-size: 2rem; }
+
+  .content-grid { grid-template-columns: 1fr; }
+}

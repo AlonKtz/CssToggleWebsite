@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Front End Development Demo - Understanding HTML, CSS, and JavaScript">
-    <title>Front End Development Demo</title>
-    <link rel="stylesheet" href="style.css" id="main-stylesheet">
+    <title>Front End Development Demo: See What CSS Does</title>
+    <meta name="description" content="Turn CSS off and on, layer by layer, to see how HTML, CSS and JavaScript build a web page. A free demo for front-end students.">
+    <meta property="og:title" content="Front End Development Demo: See What CSS Does">
+    <meta property="og:description" content="Turn CSS off and on, layer by layer, to see how a web page is built.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alonktz.github.io/CssToggleWebsite/">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+    <!-- The page's CSS, split into layers. Each <link> can be switched off on its own. -->
+    <link rel="stylesheet" href="css/tokens.css"  data-layer="tokens">
+    <link rel="stylesheet" href="css/colors.css"  data-layer="colors">
+    <link rel="stylesheet" href="css/boxes.css"   data-layer="boxes">
+    <link rel="stylesheet" href="css/layout.css"  data-layer="layout">
+    <link rel="stylesheet" href="css/effects.css" data-layer="effects">
+
+    <!-- The demo panel's own CSS. It stays on so the switch is always easy to find. -->
+    <link rel="stylesheet" href="css/panel.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,20 +29,11 @@
             <div class="logo">
                 <h1>💻 Front End Dev Demo</h1>
             </div>
-            <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" class="donate-btn">
+            <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" rel="noopener" class="btn">
                 ☕ Buy Me a Coffee
             </a>
         </div>
     </header>
-
-    <!-- Toggle Control Panel -->
-    <div class="toggle-panel">
-        <h3>🎛️ Demo Control</h3>
-        <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-sm); font-size: 0.9rem;">Press to CSS</p>
-        <div style="text-align: center;">
-            <button class="toggle-btn toggle-btn-large" id="toggle-css-btn">Toggle CSS</button>
-        </div>
-    </div>
 
     <!-- Main Content -->
     <main>
@@ -35,7 +41,7 @@
             <!-- Hero Section -->
             <section class="hero">
                 <h1>Understanding Front End Development</h1>
-                <p>Learn how HTML, CSS, and JavaScript work together to create beautiful, interactive websites.</p>
+                <p>Learn how HTML, CSS and JavaScript work together to create beautiful, interactive websites. Switch the CSS off to see the bare HTML underneath.</p>
             </section>
 
             <!-- Content Grid -->
@@ -43,83 +49,103 @@
                 <div class="card">
                     <div class="card-icon">📄</div>
                     <h3>HTML</h3>
-                    <p>HTML (HyperText Markup Language) provides the structure and content of web pages. It defines elements like headings, paragraphs, links, and images.</p>
+                    <p>HTML (HyperText Markup Language) provides the structure and content of web pages. It defines elements like headings, paragraphs, links and images.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">🎨</div>
                     <h3>CSS</h3>
-                    <p>CSS (Cascading Style Sheets) controls the visual presentation. It adds colors, layouts, fonts, animations, and makes websites beautiful.</p>
+                    <p>CSS (Cascading Style Sheets) controls the visual presentation. It adds colors, layouts, fonts and animations, and makes websites beautiful.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">⚡</div>
                     <h3>JavaScript</h3>
-                    <p>JavaScript adds interactivity and dynamic behavior. It enables features like form validation, animations, and real-time updates.</p>
+                    <p>JavaScript adds interactivity and dynamic behavior. It enables features like form validation, animations and real-time updates.</p>
                 </div>
             </div>
 
-            <!-- Code Example Section -->
-            <section class="code-section">
+            <!-- Live Example Section -->
+            <section class="section">
                 <h2>How They Work Together</h2>
-                <p>Here's a simple example showing how HTML, CSS, and JavaScript collaborate:</p>
-                
-                <div class="code-example">
-                    <strong>HTML:</strong> Defines the structure<br>
-                    &lt;button id="myButton"&gt;Click Me&lt;/button&gt;<br><br>
-                    
-                    <strong>CSS:</strong> Styles the appearance<br>
-                    button { background: blue; color: white; }<br><br>
-                    
-                    <strong>JavaScript:</strong> Adds interactivity<br>
-                    button.addEventListener('click', () => alert('Hello!'));
+                <p>Here is one button built from all three. The code below is a simplified version of what powers the button in the box underneath it, so go ahead and click it.</p>
+
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-label">HTML: the structure</div>
+<pre><code><span class="tok-tag">&lt;button</span> <span class="tok-attr">id</span>=<span class="tok-str">"myButton"</span><span class="tok-tag">&gt;</span>
+  Click Me
+<span class="tok-tag">&lt;/button&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">id</span>=<span class="tok-str">"count"</span><span class="tok-tag">&gt;&lt;/p&gt;</span></code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-label">CSS: the look</div>
+<pre><code><span class="tok-tag">#myButton</span> {
+  <span class="tok-prop">background</span>: blue;
+  <span class="tok-prop">color</span>: white;
+  <span class="tok-prop">border-radius</span>: 8px;
+}</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-label">JavaScript: the behavior</div>
+<pre><code><span class="tok-kw">let</span> clicks = 0;
+myButton.<span class="tok-prop">addEventListener</span>(<span class="tok-str">'click'</span>, () =&gt; {
+  clicks++;
+  count.<span class="tok-prop">textContent</span> =
+    <span class="tok-str">`Clicked ${clicks} times`</span>;
+});</code></pre>
+                    </div>
+                </div>
+
+                <div class="demo-stage">
+                    <button class="btn btn-lg" id="myButton" type="button">Click Me</button>
+                    <p class="demo-output" id="count" aria-live="polite">Not clicked yet</p>
                 </div>
             </section>
 
             <!-- Why CSS Matters Section -->
-            <section class="code-section">
+            <section class="section">
                 <h2>Why CSS Matters</h2>
-                <p>Without CSS, websites would look plain and unstyled. Try toggling the CSS using the button in the bottom-right corner to see the difference!</p>
-                
-                <div class="content-grid" style="margin-top: var(--spacing-md);">
+                <p>Without CSS, websites would look plain and unstyled. Use the panel in the corner to switch it off, or peel it away one layer at a time to see what each kind of CSS adds.</p>
+
+                <div class="content-grid">
                     <div class="card">
                         <h3>Visual Design</h3>
-                        <p>Colors, fonts, spacing, and layout all come from CSS. It transforms raw HTML into beautiful interfaces.</p>
+                        <p>Colors, fonts, spacing and layout all come from CSS. It turns raw HTML into a polished interface.</p>
                     </div>
-                    
+
                     <div class="card">
                         <h3>User Experience</h3>
-                        <p>CSS creates smooth transitions, hover effects, and responsive designs that adapt to different screen sizes.</p>
+                        <p>CSS creates smooth transitions, hover effects and responsive designs that adapt to different screen sizes.</p>
                     </div>
-                    
+
                     <div class="card">
                         <h3>Brand Identity</h3>
-                        <p>Consistent styling across your site builds brand recognition and professional appearance.</p>
+                        <p>Consistent styling across a site builds recognition and looks professional. Try a new accent color in the panel: one variable changes, and the whole page follows.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Learning Resources -->
-            <section class="code-section">
+            <section class="section">
                 <h2>Keep Learning</h2>
-                <p>Front-end development is an exciting journey! Here are some key concepts to explore:</p>
-                <ul style="color: var(--color-text-muted); margin-top: var(--spacing-md); line-height: 2;">
-                    <li>Responsive Design - Making sites work on all devices</li>
-                    <li>Flexbox & Grid - Modern CSS layout systems</li>
-                    <li>CSS Animations - Creating smooth, engaging transitions</li>
-                    <li>DOM Manipulation - Using JavaScript to update the page</li>
-                    <li>Web Accessibility - Building inclusive experiences</li>
+                <p>Front-end development is an exciting journey! Here are some key concepts to explore next, with a good place to start for each:</p>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener">Responsive Design</a>: making sites work on all devices</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox" target="_blank" rel="noopener">Flexbox</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids" target="_blank" rel="noopener">Grid</a>: modern CSS layout systems</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations" target="_blank" rel="noopener">CSS Animations</a>: creating smooth, engaging transitions</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">Custom Properties</a>: variables that keep a design consistent</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" target="_blank" rel="noopener">DOM Manipulation</a>: using JavaScript to update the page</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility" target="_blank" rel="noopener">Web Accessibility</a>: building inclusive experiences</li>
                 </ul>
             </section>
 
             <!-- Support Section -->
-            <section class="code-section" style="background: var(--gradient-primary); border: none;">
-                <h2 style="color: white;">☕ Support This Project</h2>
-                <p style="color: black; font-size: 1.1rem; line-height: 1.8;">
-                    Your donations help me develop more educational tools like this one! I'm passionate about creating free, accessible learning resources for developers at all levels. With your support, I can dedicate more time to building interactive demos, tutorials, and tools that make learning web development easier and more enjoyable. Every contribution, no matter how small, makes a real difference and motivates me to keep creating. Thank you for considering supporting this work! 🙏
-                </p>
-                <div style="text-align: center; margin-top: var(--spacing-md);">
-                    <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" class="donate-btn" style="font-size: 1.1rem; padding: var(--spacing-sm) var(--spacing-lg);">
+            <section class="section section-support">
+                <h2>☕ Support This Project</h2>
+                <p>Your donations help me build more educational tools like this one! I'm passionate about creating free, accessible learning resources for developers at all levels. With your support, I can spend more time on interactive demos, tutorials and tools that make learning web development easier and more enjoyable. Every contribution, no matter how small, makes a real difference. Thank you for considering it! 🙏</p>
+                <div class="support-actions">
+                    <a href="https://www.paypal.com/paypalme/Alonkatz14" target="_blank" rel="noopener" class="btn btn-lg">
                         ☕ Buy Me a Coffee
                     </a>
                 </div>
@@ -130,10 +156,69 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 AK Web Development. By Students, For Students.</p>
-            <p style="margin-top: var(--spacing-xs);">Toggle CSS to see how styling transforms this page!</p>
+            <p>&copy; <span id="year">2025</span> AK Web Development. By Students, For Students.</p>
+            <p>Toggle CSS to see how styling transforms this page! · <a href="https://github.com/AlonKtz/CssToggleWebsite" target="_blank" rel="noopener">Source on GitHub</a></p>
         </div>
     </footer>
+
+    <!-- Demo Control Panel -->
+    <aside class="demo-panel" aria-label="Demo controls">
+        <p class="demo-panel-title">🎛️ Demo Control</p>
+        <p class="demo-panel-hint">Press <kbd>C</kbd> or the button to switch CSS</p>
+
+        <button class="demo-master" id="toggle-css-btn" type="button" aria-pressed="true">CSS is ON</button>
+
+        <details class="demo-details" id="layers-details">
+            <summary>Peel it layer by layer</summary>
+            <ul class="demo-layers">
+                <li class="demo-layer">
+                    <label>
+                        <input type="checkbox" data-toggle="colors" checked>
+                        <span class="demo-switch" aria-hidden="true"></span>
+                        <span class="demo-layer-name"><kbd>1</kbd> Colors &amp; type<small>fonts, colors, backgrounds</small></span>
+                    </label>
+                    <a class="demo-view" href="css/colors.css" target="_blank" rel="noopener">view</a>
+                </li>
+                <li class="demo-layer">
+                    <label>
+                        <input type="checkbox" data-toggle="boxes" checked>
+                        <span class="demo-switch" aria-hidden="true"></span>
+                        <span class="demo-layer-name"><kbd>2</kbd> Spacing &amp; boxes<small>margin, padding, borders</small></span>
+                    </label>
+                    <a class="demo-view" href="css/boxes.css" target="_blank" rel="noopener">view</a>
+                </li>
+                <li class="demo-layer">
+                    <label>
+                        <input type="checkbox" data-toggle="layout" checked>
+                        <span class="demo-switch" aria-hidden="true"></span>
+                        <span class="demo-layer-name"><kbd>3</kbd> Layout<small>flexbox, grid, media queries</small></span>
+                    </label>
+                    <a class="demo-view" href="css/layout.css" target="_blank" rel="noopener">view</a>
+                </li>
+                <li class="demo-layer">
+                    <label>
+                        <input type="checkbox" data-toggle="effects" checked>
+                        <span class="demo-switch" aria-hidden="true"></span>
+                        <span class="demo-layer-name"><kbd>4</kbd> Effects<small>shadows, hover, animation</small></span>
+                    </label>
+                    <a class="demo-view" href="css/effects.css" target="_blank" rel="noopener">view</a>
+                </li>
+            </ul>
+        </details>
+
+        <div class="demo-accent">
+            <p class="demo-accent-label">Accent color <code>--color-accent</code></p>
+            <div class="demo-swatches" id="swatches">
+                <button class="demo-swatch" type="button" style="--swatch: #3b82f6" data-accent="#3b82f6" data-accent-2="#8b5cf6" aria-label="Blue" aria-pressed="true"></button>
+                <button class="demo-swatch" type="button" style="--swatch: #10b981" data-accent="#10b981" data-accent-2="#0ea5e9" aria-label="Green" aria-pressed="false"></button>
+                <button class="demo-swatch" type="button" style="--swatch: #f43f5e" data-accent="#f43f5e" data-accent-2="#f97316" aria-label="Red" aria-pressed="false"></button>
+                <button class="demo-swatch" type="button" style="--swatch: #eab308" data-accent="#eab308" data-accent-2="#ef4444" aria-label="Yellow" aria-pressed="false"></button>
+                <button class="demo-swatch" type="button" style="--swatch: #a855f7" data-accent="#a855f7" data-accent-2="#ec4899" aria-label="Purple" aria-pressed="false"></button>
+            </div>
+        </div>
+
+        <p class="demo-status" id="demo-status" aria-live="polite">All CSS is on.</p>
+    </aside>
 
     <script src="script.js"></script>
 </body>

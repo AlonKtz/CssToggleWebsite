@@ -1,0 +1,126 @@
+/* ===================================
+   LAYER 1: COLORS & TYPE
+   Fonts, colors, backgrounds and text styles.
+   Nothing here moves anything; it only paints.
+   =================================== */
+
+body {
+  font-family: var(--font-body);
+  background: var(--gradient-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* Gradient text: the background is clipped to the letters */
+h1 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p,
+li {
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+header,
+footer {
+  background: var(--color-bg-light);
+}
+
+.logo h1 { font-size: 1.5rem; }
+.hero h1 { font-size: 3rem; }
+.hero p  { font-size: 1.25rem; }
+
+.card,
+.section {
+  background: var(--color-card);
+}
+
+.card-icon { font-size: 2.5rem; }
+
+.card h3 {
+  color: var(--color-accent);
+  filter: brightness(1.25);
+}
+
+.section-title-sm { font-size: 1.25rem; }
+
+/* Buttons */
+.btn {
+  background: var(--gradient-primary);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-lg { font-size: 1.1rem; }
+
+/* Code */
+code,
+pre {
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+}
+
+pre {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.code-label {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tok-tag  { color: #f472b6; }
+.tok-attr { color: #fbbf24; }
+.tok-str  { color: #34d399; }
+.tok-prop { color: #60a5fa; }
+.tok-kw   { color: #c084fc; }
+
+/* Live demo output */
+.demo-output {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Support section */
+.section-support {
+  background: var(--gradient-primary);
+}
+
+.section-support h2,
+.section-support p {
+  color: white;
+}
+
+.section-support p { font-size: 1.1rem; }
+
+.section-support .btn {
+  background: white;
+  color: var(--color-bg);
+}
+
+footer p { font-size: 0.95rem; }

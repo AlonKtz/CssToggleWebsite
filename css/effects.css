@@ -1,0 +1,62 @@
+/* ===================================
+   LAYER 4: EFFECTS
+   Shadows, transitions, hover states and animations.
+   The page works without them; they make it feel alive.
+   =================================== */
+
+header { box-shadow: var(--shadow-sm); }
+
+.card,
+.btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.btn { box-shadow: var(--shadow-sm); }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Entrance animation for the hero */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero h1,
+.hero p {
+  animation: rise 0.7s ease both;
+}
+
+.hero p { animation-delay: 0.15s; }
+
+/* Small pop when the demo button is clicked */
+@keyframes pop {
+  50% { transform: scale(1.12); }
+}
+
+.demo-output.pop { animation: pop 0.3s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
